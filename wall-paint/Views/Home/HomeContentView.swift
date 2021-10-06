@@ -8,6 +8,8 @@
 import UIKit
 
 class HomeContentView: UIView {
+    let navigationController: UINavigationController?
+    
     lazy var bigBlueCube: UIImageView = {
         let imageView = UIImageView()
         imageView.image = .appBlueCube
@@ -54,10 +56,24 @@ class HomeContentView: UIView {
     
     lazy var brushButton: UIButton = {
         let button = UIButton()
+        button.addTarget(self, action: #selector(clickedBrush), for: .touchUpInside)
         return button
     }()
     
-    override init(frame: CGRect = .zero) {
+    @objc func clickedBrush(sender: UIButton) {
+        UIView.animate(withDuration: 0.3, animations: {
+            sender.frame = CGRect(x: sender.bounds.minX, y: sender.bounds.midY + 10, width: sender.bounds.width, height: sender.bounds.height)
+        }, completion: { (value: Bool) in
+            UIView.animate(withDuration: 0.3, animations: {
+                sender.frame = CGRect(x: sender.bounds.minX, y: sender.bounds.midY - 10, width: sender.bounds.width, height: sender.bounds.height)
+            }) { _ in
+                self.navigationController?.pushViewController(ViewController(), animated: true)
+            }
+        })
+    }
+    
+    init(frame: CGRect = .zero, navigationController: UINavigationController?) {
+        self.navigationController = navigationController
         super.init(frame: frame)
         
         setupGradientView()
@@ -92,6 +108,10 @@ class HomeContentView: UIView {
             make.width.equalTo(side)
             make.height.equalTo(side)
         }
+        
+        UIView.animate(withDuration: 4, delay: 0, options: [.autoreverse, .repeat]) {
+            self.bigBlueCube.frame = CGRect(x: self.bigBlueCube.frame.origin.x, y: self.bigBlueCube.frame.origin.y - 15, width: self.bigBlueCube.frame.size.width, height: self.bigBlueCube.frame.size.height)
+        }
     }
     
     func setupSmallBlueCube() {
@@ -103,6 +123,10 @@ class HomeContentView: UIView {
             make.bottom.equalToSuperview().offset(-32)
             make.width.equalTo(side)
             make.height.equalTo(side)
+        }
+        
+        UIView.animate(withDuration: 3, delay: 0, options: [.autoreverse, .repeat]) {
+            self.smallBlueCube.frame = CGRect(x: self.smallBlueCube.frame.origin.x, y: self.smallBlueCube.frame.origin.y - 15, width: self.smallBlueCube.frame.size.width, height: self.smallBlueCube.frame.size.height)
         }
     }
     
@@ -116,6 +140,10 @@ class HomeContentView: UIView {
             make.width.equalTo(side)
             make.height.equalTo(side)
         }
+        
+        UIView.animate(withDuration: 4, delay: 0, options: [.autoreverse, .repeat]) {
+            self.bigGoldenCube.frame = CGRect(x: self.bigGoldenCube.frame.origin.x, y: self.bigGoldenCube.frame.origin.y + 15, width: self.bigGoldenCube.frame.size.width, height: self.bigGoldenCube.frame.size.height)
+        }
     }
     
     func setupSmallGoldenCube() {
@@ -127,6 +155,10 @@ class HomeContentView: UIView {
             make.centerY.equalTo(bigGoldenCube).offset(64)
             make.width.equalTo(side)
             make.height.equalTo(side)
+        }
+        
+        UIView.animate(withDuration: 3, delay: 0, options: [.autoreverse, .repeat]) {
+            self.smallGoldenCube.frame = CGRect(x: self.smallGoldenCube.frame.origin.x, y: self.smallGoldenCube.frame.origin.y + 15, width: self.smallGoldenCube.frame.size.width, height: self.smallGoldenCube.frame.size.height)
         }
     }
     

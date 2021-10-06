@@ -10,7 +10,7 @@ import SnapKit
 
 class HomeViewController: UIViewController {
     lazy var homeContentView: HomeContentView = {
-        let view = HomeContentView()
+        let view = HomeContentView(navigationController: navigationController)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
