@@ -10,9 +10,13 @@
 		619E7123270D06C7002EB702 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619E7122270D06C7002EB702 /* AppDelegate.swift */; };
 		619E7125270D06C7002EB702 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619E7124270D06C7002EB702 /* SceneDelegate.swift */; };
 		619E7127270D06C7002EB702 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619E7126270D06C7002EB702 /* ViewController.swift */; };
-		619E712A270D06C7002EB702 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 619E7128270D06C7002EB702 /* Main.storyboard */; };
 		619E712C270D06C9002EB702 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 619E712B270D06C9002EB702 /* Assets.xcassets */; };
-		619E712F270D06C9002EB702 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 619E712D270D06C9002EB702 /* LaunchScreen.storyboard */; };
+		619E7139270D0818002EB702 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619E7138270D0818002EB702 /* HomeViewController.swift */; };
+		619E713C270DCA07002EB702 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619E713B270DCA07002EB702 /* UIImage+.swift */; };
+		619E713E270DCED1002EB702 /* HomeContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619E713D270DCED1002EB702 /* HomeContentView.swift */; };
+		619E7148270DD28B002EB702 /* BrushButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619E7147270DD28B002EB702 /* BrushButtonView.swift */; };
+		619E714B270DD301002EB702 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 619E714A270DD301002EB702 /* SnapKit */; };
+		619E714D270DE6FD002EB702 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619E714C270DE6FD002EB702 /* UIColor+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,10 +24,13 @@
 		619E7122270D06C7002EB702 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		619E7124270D06C7002EB702 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		619E7126270D06C7002EB702 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		619E7129270D06C7002EB702 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		619E712B270D06C9002EB702 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		619E712E270D06C9002EB702 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		619E7130270D06C9002EB702 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		619E7138270D0818002EB702 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		619E713B270DCA07002EB702 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
+		619E713D270DCED1002EB702 /* HomeContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContentView.swift; sourceTree = "<group>"; };
+		619E7147270DD28B002EB702 /* BrushButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrushButtonView.swift; sourceTree = "<group>"; };
+		619E714C270DE6FD002EB702 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				619E714B270DD301002EB702 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,12 +67,39 @@
 				619E7122270D06C7002EB702 /* AppDelegate.swift */,
 				619E7124270D06C7002EB702 /* SceneDelegate.swift */,
 				619E7126270D06C7002EB702 /* ViewController.swift */,
-				619E7128270D06C7002EB702 /* Main.storyboard */,
+				619E7136270D07EF002EB702 /* Views */,
+				619E713A270DC9E9002EB702 /* Extensions */,
 				619E712B270D06C9002EB702 /* Assets.xcassets */,
-				619E712D270D06C9002EB702 /* LaunchScreen.storyboard */,
 				619E7130270D06C9002EB702 /* Info.plist */,
 			);
 			path = "wall-paint";
+			sourceTree = "<group>";
+		};
+		619E7136270D07EF002EB702 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				619E7137270D07FD002EB702 /* Home */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		619E7137270D07FD002EB702 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				619E7138270D0818002EB702 /* HomeViewController.swift */,
+				619E713D270DCED1002EB702 /* HomeContentView.swift */,
+				619E7147270DD28B002EB702 /* BrushButtonView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		619E713A270DC9E9002EB702 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				619E714C270DE6FD002EB702 /* UIColor+.swift */,
+				619E713B270DCA07002EB702 /* UIImage+.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +118,9 @@
 			dependencies = (
 			);
 			name = "wall-paint";
+			packageProductDependencies = (
+				619E714A270DD301002EB702 /* SnapKit */,
+			);
 			productName = "wall-paint";
 			productReference = 619E711F270D06C7002EB702 /* wall-paint.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +149,9 @@
 				Base,
 			);
 			mainGroup = 619E7116270D06C7002EB702;
+			packageReferences = (
+				619E7149270DD301002EB702 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 619E7120270D06C7002EB702 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -125,9 +166,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				619E712F270D06C9002EB702 /* LaunchScreen.storyboard in Resources */,
 				619E712C270D06C9002EB702 /* Assets.xcassets in Resources */,
-				619E712A270D06C7002EB702 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,30 +179,16 @@
 			files = (
 				619E7127270D06C7002EB702 /* ViewController.swift in Sources */,
 				619E7123270D06C7002EB702 /* AppDelegate.swift in Sources */,
+				619E7148270DD28B002EB702 /* BrushButtonView.swift in Sources */,
+				619E713C270DCA07002EB702 /* UIImage+.swift in Sources */,
+				619E713E270DCED1002EB702 /* HomeContentView.swift in Sources */,
+				619E714D270DE6FD002EB702 /* UIColor+.swift in Sources */,
 				619E7125270D06C7002EB702 /* SceneDelegate.swift in Sources */,
+				619E7139270D0818002EB702 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		619E7128270D06C7002EB702 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				619E7129270D06C7002EB702 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		619E712D270D06C9002EB702 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				619E712E270D06C9002EB702 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		619E7131270D06C9002EB702 /* Debug */ = {
@@ -294,7 +319,6 @@
 				INFOPLIST_FILE = "wall-paint/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -322,7 +346,6 @@
 				INFOPLIST_FILE = "wall-paint/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -360,6 +383,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		619E7149270DD301002EB702 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		619E714A270DD301002EB702 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 619E7149270DD301002EB702 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 619E7117270D06C7002EB702 /* Project object */;
 }
