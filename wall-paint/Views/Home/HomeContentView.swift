@@ -67,7 +67,7 @@ class HomeContentView: UIView {
             UIView.animate(withDuration: 0.3, animations: {
                 sender.frame = CGRect(x: sender.bounds.minX, y: sender.bounds.midY - 10, width: sender.bounds.width, height: sender.bounds.height)
             }) { _ in
-                self.navigationController?.pushViewController(ViewController(), animated: true)
+                self.navigationController?.pushViewController(PaintARViewController(), animated: true)
             }
         })
     }

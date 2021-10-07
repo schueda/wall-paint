@@ -17,20 +17,12 @@ extension UIImage {
         UIImage(named: "GoldenCube")!
     }}
     
-    open class var systemChevron: UIImage { get {
-        UIImage(systemName: "chevron")!
+    open class var appBackButton: UIImage { get {
+        UIImage(named: "BackButton")!
     }}
     
-    open class var systemXmark: UIImage { get {
-        UIImage(systemName: "xmark")!
-    }}
-    
-    open class var systemCheckmark: UIImage { get {
-        UIImage(systemName: "checkmark")!
-    }}
-    
-    open class var systemCircle: UIImage { get {
-        UIImage(systemName: "circle")!
+    open class var appShotButton: UIImage { get {
+        UIImage(named: "ShotButton")!
     }}
     
     open class var systemBrush: UIImage { get {

@@ -17,6 +17,8 @@
 		619E7148270DD28B002EB702 /* BrushButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619E7147270DD28B002EB702 /* BrushButtonView.swift */; };
 		619E714B270DD301002EB702 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 619E714A270DD301002EB702 /* SnapKit */; };
 		619E714D270DE6FD002EB702 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619E714C270DE6FD002EB702 /* UIColor+.swift */; };
+		619E7160270F29BC002EB702 /* PaintARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619E715F270F29BC002EB702 /* PaintARViewController.swift */; };
+		619E7165270F3862002EB702 /* FocalNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619E7164270F3862002EB702 /* FocalNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 		619E713D270DCED1002EB702 /* HomeContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContentView.swift; sourceTree = "<group>"; };
 		619E7147270DD28B002EB702 /* BrushButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrushButtonView.swift; sourceTree = "<group>"; };
 		619E714C270DE6FD002EB702 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		619E715F270F29BC002EB702 /* PaintARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintARViewController.swift; sourceTree = "<group>"; };
+		619E7164270F3862002EB702 /* FocalNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocalNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,7 @@
 				619E7126270D06C7002EB702 /* ViewController.swift */,
 				619E7136270D07EF002EB702 /* Views */,
 				619E713A270DC9E9002EB702 /* Extensions */,
+				619E7163270F384E002EB702 /* Nodes */,
 				619E712B270D06C9002EB702 /* Assets.xcassets */,
 				619E7130270D06C9002EB702 /* Info.plist */,
 			);
@@ -79,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				619E7137270D07FD002EB702 /* Home */,
+				619E715E270F295F002EB702 /* PaintAR */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -100,6 +106,22 @@
 				619E713B270DCA07002EB702 /* UIImage+.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		619E715E270F295F002EB702 /* PaintAR */ = {
+			isa = PBXGroup;
+			children = (
+				619E715F270F29BC002EB702 /* PaintARViewController.swift */,
+			);
+			path = PaintAR;
+			sourceTree = "<group>";
+		};
+		619E7163270F384E002EB702 /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				619E7164270F3862002EB702 /* FocalNode.swift */,
+			);
+			path = Nodes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,8 +202,10 @@
 				619E7127270D06C7002EB702 /* ViewController.swift in Sources */,
 				619E7123270D06C7002EB702 /* AppDelegate.swift in Sources */,
 				619E7148270DD28B002EB702 /* BrushButtonView.swift in Sources */,
+				619E7165270F3862002EB702 /* FocalNode.swift in Sources */,
 				619E713C270DCA07002EB702 /* UIImage+.swift in Sources */,
 				619E713E270DCED1002EB702 /* HomeContentView.swift in Sources */,
+				619E7160270F29BC002EB702 /* PaintARViewController.swift in Sources */,
 				619E714D270DE6FD002EB702 /* UIColor+.swift in Sources */,
 				619E7125270D06C7002EB702 /* SceneDelegate.swift in Sources */,
 				619E7139270D0818002EB702 /* HomeViewController.swift in Sources */,
