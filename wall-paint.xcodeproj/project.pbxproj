@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		619E7123270D06C7002EB702 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619E7122270D06C7002EB702 /* AppDelegate.swift */; };
 		619E7125270D06C7002EB702 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619E7124270D06C7002EB702 /* SceneDelegate.swift */; };
-		619E7127270D06C7002EB702 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619E7126270D06C7002EB702 /* ViewController.swift */; };
 		619E712C270D06C9002EB702 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 619E712B270D06C9002EB702 /* Assets.xcassets */; };
 		619E7139270D0818002EB702 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619E7138270D0818002EB702 /* HomeViewController.swift */; };
 		619E713C270DCA07002EB702 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619E713B270DCA07002EB702 /* UIImage+.swift */; };
@@ -19,13 +18,14 @@
 		619E714D270DE6FD002EB702 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619E714C270DE6FD002EB702 /* UIColor+.swift */; };
 		619E7160270F29BC002EB702 /* PaintARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619E715F270F29BC002EB702 /* PaintARViewController.swift */; };
 		619E7165270F3862002EB702 /* FocalNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619E7164270F3862002EB702 /* FocalNode.swift */; };
+		619E7167271067E5002EB702 /* Plane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619E7166271067E4002EB702 /* Plane.swift */; };
+		619E71692710712E002EB702 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619E71682710712E002EB702 /* Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		619E711F270D06C7002EB702 /* wall-paint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "wall-paint.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		619E7122270D06C7002EB702 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		619E7124270D06C7002EB702 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		619E7126270D06C7002EB702 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		619E712B270D06C9002EB702 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		619E7130270D06C9002EB702 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		619E7138270D0818002EB702 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +35,8 @@
 		619E714C270DE6FD002EB702 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		619E715F270F29BC002EB702 /* PaintARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintARViewController.swift; sourceTree = "<group>"; };
 		619E7164270F3862002EB702 /* FocalNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocalNode.swift; sourceTree = "<group>"; };
+		619E7166271067E4002EB702 /* Plane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plane.swift; sourceTree = "<group>"; };
+		619E71682710712E002EB702 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +72,7 @@
 			children = (
 				619E7122270D06C7002EB702 /* AppDelegate.swift */,
 				619E7124270D06C7002EB702 /* SceneDelegate.swift */,
-				619E7126270D06C7002EB702 /* ViewController.swift */,
+				619E71682710712E002EB702 /* Utilities.swift */,
 				619E7136270D07EF002EB702 /* Views */,
 				619E713A270DC9E9002EB702 /* Extensions */,
 				619E7163270F384E002EB702 /* Nodes */,
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				619E7164270F3862002EB702 /* FocalNode.swift */,
+				619E7166271067E4002EB702 /* Plane.swift */,
 			);
 			path = Nodes;
 			sourceTree = "<group>";
@@ -199,9 +202,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				619E7127270D06C7002EB702 /* ViewController.swift in Sources */,
 				619E7123270D06C7002EB702 /* AppDelegate.swift in Sources */,
 				619E7148270DD28B002EB702 /* BrushButtonView.swift in Sources */,
+				619E71692710712E002EB702 /* Utilities.swift in Sources */,
 				619E7165270F3862002EB702 /* FocalNode.swift in Sources */,
 				619E713C270DCA07002EB702 /* UIImage+.swift in Sources */,
 				619E713E270DCED1002EB702 /* HomeContentView.swift in Sources */,
@@ -209,6 +212,7 @@
 				619E714D270DE6FD002EB702 /* UIColor+.swift in Sources */,
 				619E7125270D06C7002EB702 /* SceneDelegate.swift in Sources */,
 				619E7139270D0818002EB702 /* HomeViewController.swift in Sources */,
+				619E7167271067E5002EB702 /* Plane.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -25,6 +25,14 @@ extension UIImage {
         UIImage(named: "ShotButton")!
     }}
     
+    open class var appCheckButton: UIImage { get {
+        UIImage(named: "CheckButton")!
+    }}
+    
+    open class var appXButton: UIImage { get {
+        UIImage(named: "XButton")!
+    }}
+    
     open class var systemBrush: UIImage { get {
         UIImage(systemName: "paintbrush")!
     }}

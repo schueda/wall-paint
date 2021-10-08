@@ -55,7 +55,6 @@ class FocalNode: SCNNode {
         addVerticalSegment(dy: dist)
         addVerticalSegment(dy: -dist)
         
-        // Rotate the node so the square is flat against the floor
         transform = SCNMatrix4MakeRotation(-Float.pi / 2.0, 0.0, 1.0, 0.0)
     }
     
