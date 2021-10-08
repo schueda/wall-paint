@@ -3,7 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>NSCameraUsageDescription</key>
-	<string>This application will use the camera for Augmented Reality.</string>
+	<string>O app necessita do acesso à camera para que a realidade aumentada possa ser utilizada</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>O app precisa de permissão para que sua imagem seja salva na galeria</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

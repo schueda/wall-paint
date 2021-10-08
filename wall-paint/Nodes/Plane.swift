@@ -9,7 +9,6 @@ import ARKit
 
 class Plane: SCNNode {
     
-    let meshNode: SCNNode
     let extentNode: SCNNode
     var classificationNode: SCNNode?
     
@@ -19,12 +18,6 @@ class Plane: SCNNode {
         #if targetEnvironment(simulator)
         #error("ARKit is not supported in iOS Simulator. Connect a physical iOS device and select it as your Xcode run destination, or select Generic iOS Device as a build-only destination.")
         #else
-
-        // Create a mesh to visualize the estimated shape of the plane.
-        guard let meshGeometry = ARSCNPlaneGeometry(device: sceneView.device!)
-            else { fatalError("Can't create plane geometry") }
-        meshGeometry.update(from: anchor.geometry)
-        meshNode = SCNNode(geometry: meshGeometry)
         
         // Create a node to visualize the plane's bounding rectangle.
         let extentPlane: SCNPlane = SCNPlane(width: CGFloat(anchor.extent.x), height: CGFloat(anchor.extent.z))
@@ -37,23 +30,8 @@ class Plane: SCNNode {
 
         super.init()
 
-        self.setupMeshVisualStyle()
         self.setupExtentVisualStyle()
-
-        // Add the plane extent and plane geometry as child nodes so they appear in the scene.
-        addChildNode(meshNode)
         addChildNode(extentNode)
-        
-        // Display the plane's classification, if supported on the device
-        if #available(iOS 12.0, *), ARPlaneAnchor.isClassificationSupported {
-            let classification = anchor.classification.description
-            let textNode = self.makeTextNode(classification)
-            classificationNode = textNode
-            // Change the pivot of the text node to its center
-            textNode.centerAlign()
-            // Add the classification node as a child node so that it displays the classification
-            extentNode.addChildNode(textNode)
-        }
         #endif
     }
     
@@ -61,19 +39,9 @@ class Plane: SCNNode {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupMeshVisualStyle() {
-        // Make the plane visualization semitransparent to clearly show real-world placement.
-        meshNode.opacity = 0.25
-        
-        // Use color and blend mode to make planes stand out.
-        guard let material = meshNode.geometry?.firstMaterial
-            else { fatalError("ARSCNPlaneGeometry always has one material") }
-        material.diffuse.contents = UIColor.appLightGolden
-    }
-    
     private func setupExtentVisualStyle() {
         // Make the extent visualization semitransparent to clearly show real-world placement.
-        extentNode.opacity = 1
+        extentNode.opacity = 0.7
 
         guard let material = extentNode.geometry?.firstMaterial
             else { fatalError("SCNPlane always has one material") }

@@ -9,7 +9,7 @@ import UIKit
 import ARKit
 
 class PaintARViewController: UIViewController {
-    var focalNode: SCNNode?
+    var plane: SCNNode?
     var screenCenter = CGPoint(x: 0, y: 0)
     
     lazy var ARView: ARSCNView = {
@@ -17,11 +17,30 @@ class PaintARViewController: UIViewController {
         
         sceneView.delegate = self
         sceneView.session = ARSession()
-        sceneView.automaticallyUpdatesLighting = true
-        sceneView.autoenablesDefaultLighting = true
         sceneView.preferredFramesPerSecond = 60
         
+        let tap = UITapGestureRecognizer()
+        tap.addTarget(self, action: #selector(tappedAR))
+        sceneView.addGestureRecognizer(tap)
         return sceneView
+    }()
+    
+    @objc func tappedAR(sender: UITapGestureRecognizer) {
+        let location = sender.location(in: ARView)
+        let results = ARView.hitTest(location, options: [SCNHitTestOption.searchMode : 1])
+        
+        plane = results.first?.node
+        
+        if plane != nil {
+            navigationController?.present(colorPicker, animated: true, completion: nil)
+        }
+        
+    }
+    
+    lazy var colorPicker: UIColorPickerViewController = {
+        let colorPicker = UIColorPickerViewController()
+        colorPicker.delegate = self
+        return colorPicker
     }()
     
     let sessionConfiguration: ARWorldTrackingConfiguration = {
@@ -75,6 +94,18 @@ class PaintARViewController: UIViewController {
         return imageView
     }()
     
+    lazy var instructionLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Aponte o celular para uma parede e se mova ao redor dela"
+        label.font = .systemFont(ofSize: 22, weight: .bold)
+        label.backgroundColor = UIColor(white: 0.5, alpha: 0.5)
+        label.layer.cornerRadius = 20
+        label.clipsToBounds = true
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        return label
+    }()
+    
     lazy var shotImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -93,15 +124,22 @@ class PaintARViewController: UIViewController {
     }()
     
     @objc func clickedCheck() {
-        //todo: salvar a imagem
-        //      fazer o feedback de que a imagem foi salva na galeria
-        UIView.animate(withDuration: 0.5) {
+        guard let image = shotImageView.image else { return }
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        instructionLabel.text = "Imagem salva na galeria"
+        
+        UIView.animate(withDuration: 0.5, animations: {
             self.shotImageView.alpha = 0
             self.checkButton.alpha = 0
             self.xButton.alpha = 0
             self.shotButton.alpha = 1
             self.backButton.alpha = 1
-        }
+            self.instructionLabel.alpha = 1
+        }, completion: { _ in
+            UIView.animate(withDuration: 2) {
+                self.instructionLabel.alpha = 0
+            }
+        })
         
     }
     
@@ -126,7 +164,7 @@ class PaintARViewController: UIViewController {
             self.xButton.alpha = 0
             self.shotButton.alpha = 1
             self.backButton.alpha = 1
-
+            
         }
     }
     
@@ -161,6 +199,8 @@ class PaintARViewController: UIViewController {
         setupARView()
         setupBackButton()
         setupShotButton()
+        
+        setupInstructionLabel()
         
         setupShotImageView()
         setupCheckButton()
@@ -203,6 +243,15 @@ class PaintARViewController: UIViewController {
         shotButton.addSubview(shotButtonImageView)
         shotButtonImageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
+        }
+    }
+    
+    func setupInstructionLabel() {
+        view.addSubview(instructionLabel)
+        instructionLabel.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.width.equalTo(250)
+            make.height.equalTo(250)
         }
     }
     
@@ -255,8 +304,12 @@ extension PaintARViewController: ARSCNViewDelegate {
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
         let plane = Plane(anchor: planeAnchor, in: ARView)
-        if node.childNodes.isEmpty {
-            node.addChildNode(plane)
+        node.addChildNode(plane)
+        
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 1, animations: {
+                self.instructionLabel.alpha = 0.0
+            })
         }
     }
     
@@ -267,27 +320,23 @@ extension PaintARViewController: ARSCNViewDelegate {
               let plane = node.childNodes.first as? Plane
         else { return }
         
-        // Update ARSCNPlaneGeometry to the anchor's new estimated shape.
-        if let planeGeometry = plane.meshNode.geometry as? ARSCNPlaneGeometry {
-            planeGeometry.update(from: planeAnchor.geometry)
-        }
-        
         // Update extent visualization to the anchor's new bounding rectangle.
         if let extentGeometry = plane.extentNode.geometry as? SCNPlane {
             extentGeometry.width = CGFloat(planeAnchor.extent.x)
             extentGeometry.height = CGFloat(planeAnchor.extent.z)
             plane.extentNode.simdPosition = planeAnchor.center
         }
-        
-        // Update the plane's classification and the text position
-        if #available(iOS 12.0, *),
-           let classificationNode = plane.classificationNode,
-           let classificationGeometry = classificationNode.geometry as? SCNText {
-            let currentClassification = planeAnchor.classification.description
-            if let oldClassification = classificationGeometry.string as? String, oldClassification != currentClassification {
-                classificationGeometry.string = currentClassification
-                classificationNode.centerAlign()
-            }
-        }
+    }
+}
+
+extension PaintARViewController: UIColorPickerViewControllerDelegate {
+    func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
+        plane?.opacity = 1
+        guard let material = plane?.geometry?.materials.first else { return }
+        material.diffuse.contents = viewController.selectedColor
     }
 }
